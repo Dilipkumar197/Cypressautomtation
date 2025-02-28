@@ -35,6 +35,10 @@ class Login
         cy.xpath("//h2[normalize-space()='My Account']").should('have.text',"My Account");
     }
 
+    clickonforgotpasslink()
+    {
+        cy.xpath("(//a[normalize-space()='Forgotten Password'])[1]").click();
+    }
 
 }
 

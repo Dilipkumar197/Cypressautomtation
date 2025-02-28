@@ -19,8 +19,6 @@ class Homepage
         cy.xpath("(//a[text()='Login'])[1]").click();
     }
 
-       
-
     
 }
 
