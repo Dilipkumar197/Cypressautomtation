@@ -10,7 +10,9 @@ class Registerpage
 
  setLastName(lastname)
  {
+   
  cy.get("#input-lastname").type(lastname);
+
  }   
 
 
