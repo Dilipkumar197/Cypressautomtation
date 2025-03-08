@@ -43,7 +43,7 @@ describe('test suites', () =>{
 
           cy.wait(5000);
           cp.Deliveryaddressconfirm();
-          cp.Shippingtxtfirstname('Sai');
+          cp.Shippingtxtfirstname('Dilip');
           cp.Shippingtxtlastname('Kiran');
           cp.Shippingtxtcompany('Google');
           cp.Shippingtxtaddress('56-178');
