@@ -1,42 +1,49 @@
 pipeline {
     agent any
-
+    
+    environment {
+        // Set the path to the node installation (if it's not set globally)
+        NODE_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
+        PATH = "${NODE_HOME}/bin:${env.PATH}"
+    }
+    
     stages {
         stage('Checkout') {
             steps {
+                // Checkout your repository code
                 checkout scm
             }
         }
-
-        stage('Build') {
+        
+        stage('Install Dependencies') {
             steps {
                 script {
-                    // Run Maven build
-                    bat 'mvn clean install'
+                    // Install the npm dependencies (including Cypress)
+                    bat 'npm install'
                 }
             }
         }
-
-        stage('Test') {
+        
+        stage('Run Tests') {
             steps {
                 script {
-                    // Run Maven tests
-                    bat 'mvn test'
+                    // Run Cypress tests
+                    bat 'npx cypress run'
                 }
-            }
-        }
-
-        stage('Publish Test Results') {
-            steps {
-                // Publish the test results
-                junit '**/target/surefire-reports/*.xml'  // Ensure the path matches the actual location of test result XML files
             }
         }
     }
-
+    
     post {
         always {
             echo 'This is always executed after the build.'
         }
+        success {
+            echo 'Cypress tests ran successfully!'
+        }
+        failure {
+            echo 'Cypress tests failed!'
+        }
     }
 }
+
