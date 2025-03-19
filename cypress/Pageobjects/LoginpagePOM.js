@@ -32,7 +32,7 @@ class Login
 
     VerifyLogin()
     {
-        cy.xpath("//h2[normalize-space()='My Account']").should('have.text',"My Account");
+        cy.get("h2:nth-child(1)").should('have.text',"My Account");
     }
 
     clickonforgotpasslink()

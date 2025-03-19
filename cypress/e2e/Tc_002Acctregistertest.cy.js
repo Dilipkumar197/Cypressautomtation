@@ -6,24 +6,25 @@ describe('test suites', () =>{
    
        it.only('Acct registertest  with POM', ()=> {
            
-           cy.visit("https://awesomeqa.com/ui/index.php?route=common/home");
+           cy.visit("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
            cy.wait(5000);
 
            const hm= new Homepage();
            hm.clickondropdown();
+           cy.wait(5000);
            hm.clickonregister();
            cy.wait(5000);
    
            const reg= new Registerpage();
-           reg.setFirstName("Dilip");
-           reg.setLastName("Kumar");
-           reg.setEmail("Vdilipkumar19966@gmail.com");
-           reg.setTelephone("7798987878");
-           reg.setPassword("Deepu@123456");
-           reg.setConfirmPassword("Deepu@123456");
+           reg.setFirstName("Don");
+           reg.setLastName("Jagadesh");
+           reg.setEmail("DonJagadesh780@gmail.com");
+           reg.setTelephone("9898987878");
+           reg.setPassword("Don@789");
+           reg.setConfirmPassword("Don@789");
            reg.checkPrivacypolicy();
            reg.clickonbtncontinue();
-           cy.wait(5000);
+           cy.wait(7000);
            reg.verifyacctcreation();
     
        })
