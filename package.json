@@ -2,8 +2,19 @@
   "name": "ecommerce",
   "version": "1.0.0",
   "main": "index.js",
+
+
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   
+    "test": "cypress run",
+    "test:headed": "cypress run --headed",
+    "test:browser": "cypress run --browser chrome",
+    "open": "cypress open",
+    "report": "mochawesome-merge reports/*.json > reports/index.json && marge reports/index.json",
+    "cy:cloud": "npx cypress run --browser chrome --spec \"cypress/e2e/*.cy.js\""
+
+
   },
   "author": "Dilip",
   "license": "ISC",
