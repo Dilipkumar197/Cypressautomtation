@@ -2,41 +2,53 @@ pipeline {
     agent any
     
     environment {
-        // Set the path to the node installation (if it's not set globally)
         NODE_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
         PATH = "${NODE_HOME}/bin:${env.PATH}"
     }
-    
+
+    options {
+        timeout(time: 20, unit: 'MINUTES')
+    }
+
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your repository code
-                checkout scm
-            }
-        }
-        
-        stage('Install Dependencies') {
+        stage('Clean') {
             steps {
                 script {
-                    // Install the npm dependencies (including Cypress)
-                    bat 'npm install'
+                    bat 'npm cache clean --force'
+                    bat 'rmdir /s /q node_modules || echo "No node_modules to delete"'
                 }
             }
         }
-        
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                        bat 'npm install'
+                    }
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
-                    // Run Cypress tests
-                    bat 'npx cypress run'
+                    bat 'npx cypress run --parallel'
                 }
             }
         }
     }
-    
+
     post {
         always {
             echo 'This is always executed after the build.'
+            archiveArtifacts artifacts: 'cypress/screenshots/**/*, cypress/videos/**/*', allowEmptyArchive: true
         }
         success {
             echo 'Cypress tests ran successfully!'
@@ -46,4 +58,3 @@ pipeline {
         }
     }
 }
-
