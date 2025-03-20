@@ -12,7 +12,7 @@
     "test:browser": "cypress run --browser chrome",
     "open": "cypress open",
     "report": "mochawesome-merge reports/*.json > reports/index.json && marge reports/index.json",
-    "cy:cloud": "npx cypress run --browser chrome --spec \"cypress/e2e/*.cy.js\""
+    "cy:run": "npx cypress run --browser chrome --spec 'cypress/e2e/**/*.cy.js'"
 
 
   },
