@@ -47,8 +47,12 @@ pipeline {
 
     post {
         always {
-            echo 'This is always executed after the build.'
-            archiveArtifacts artifacts: 'cypress/screenshots/**/*, cypress/videos/**/*', allowEmptyArchive: true
+            script {
+                node {
+                    echo 'This is always executed after the build.'
+                    archiveArtifacts artifacts: 'cypress/screenshots/**/*, cypress/videos/**/*', allowEmptyArchive: true
+                }
+            }
         }
         success {
             echo 'Cypress tests ran successfully!'
