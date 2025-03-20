@@ -4,6 +4,7 @@ pipeline {
     environment {
         NODE_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
         PATH = "${NODE_HOME}/bin:${env.PATH}"
+        CYPRESS_CACHE_FOLDER = 'C:\\Users\\DILIP KUMAR\\AppData\\Local\\Cypress\\Cache'
     }
 
     options {
@@ -36,6 +37,14 @@ pipeline {
             }
         }
 
+        stage('Verify Cypress') {
+            steps {
+                script {
+                    bat 'npx cypress verify'
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 script {
@@ -62,3 +71,4 @@ pipeline {
         }
     }
 }
+
