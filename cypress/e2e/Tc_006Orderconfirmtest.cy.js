@@ -24,7 +24,6 @@ describe('test suites', () =>{
 
 
            const sp = new Searchpage2();
-        
            sp.Linkcartlist();
            sp.Lnkcheckoutpage();
            cy.wait(5000);
@@ -55,7 +54,6 @@ describe('test suites', () =>{
           cp.btncontinuepayment();
           cp.btnconfirmorder();
           cp.verifyorderconfirmed();
-
                      
        })
    

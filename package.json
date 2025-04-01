@@ -11,7 +11,7 @@
     "test:headed": "cypress run --headed",
     "test:browser": "cypress run --browser chrome",
     "open": "cypress open",
-    "report": "mochawesome-merge reports/*.json > reports/index.json && marge reports/index.json",
+     "report": "mkdir -p reports && mochawesome-merge reports/*.json > reports/index.json && marge reports/index.json",
     "cy:run": "npx cypress run --browser chrome --spec 'cypress/e2e/**/*.cy.js'"
 
 

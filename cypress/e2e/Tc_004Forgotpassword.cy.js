@@ -20,6 +20,7 @@ describe('test suites', () =>{
            cy.wait(5000);
            
            const fp= new Forgotpassword();
+           cy.wait(6000);
            fp.setEmail("Harishkumar567@gmail.com");
            fp.clickonbtn();
            //fp.verifyemailtext();
