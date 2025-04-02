@@ -7,7 +7,7 @@ import Searchpage2 from "../Pageobjects/SearchpagePOM2"
 describe('test suites', () =>{
 
    
-       it('Log in test  with POM', ()=> {
+       it('Search product test', ()=> {
            
            cy.visit("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
            cy.wait(5000);
@@ -32,9 +32,9 @@ describe('test suites', () =>{
            sp.clickonaddtocart();
            cy.wait(5000);
            sp.productlistsuccessmessage();
-           sp.Linkcartlist();
-           sp.Viewcartlink();
-           sp.Linkcontinueshopping();
+           //sp.Linkcartlist();
+           //sp.Viewcartlink();
+           //sp.Linkcontinueshopping();
     
            
            

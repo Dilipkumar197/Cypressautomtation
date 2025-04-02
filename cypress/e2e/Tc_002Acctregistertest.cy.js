@@ -18,7 +18,7 @@ describe('test suites', () =>{
            const reg= new Registerpage();
            reg.setFirstName("Don");
            reg.setLastName("Jagadesh");
-           reg.setEmail("DonJagadesh7801@gmail.com");
+           reg.setEmail("DonJagadesh8911@gmail.com");
            reg.setTelephone("9898987878");
            reg.setPassword("Don@789");
            reg.setConfirmPassword("Don@789");

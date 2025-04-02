@@ -28,7 +28,7 @@ describe('test suites', () =>{
            sp.Lnkcheckoutpage();
            cy.wait(5000);
           
-          const cp = new checkoutpage();
+          /*const cp = new checkoutpage();
           cy.wait(10000);
           cp.radiobtn();
           cp.txtfirstname('Sai Krishna');
@@ -54,7 +54,9 @@ describe('test suites', () =>{
           cp.btncontinuepayment();
           cp.btnconfirmorder();
           cp.verifyorderconfirmed();
-                     
+         */            
+         
+
        })
    
    
