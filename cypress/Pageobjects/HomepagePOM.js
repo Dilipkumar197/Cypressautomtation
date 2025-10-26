@@ -10,13 +10,13 @@ class Homepage
 
     clickonregister()
     {
-        cy.xpath("//a[normalize-space()='Register']").click();
+        cy.xpath("(//a[normalize-space()='Register'])[1]").click();
     }
 
     clickonlogin()
 
     {
-        cy.xpath("(//a[text()='Login'])[1]").click();
+        cy.xpath("(//a[normalize-space()='Login'])[1]").click();
     }
 
     

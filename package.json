@@ -2,8 +2,19 @@
   "name": "ecommerce",
   "version": "1.0.0",
   "main": "index.js",
+
+
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   
+    "test": "cypress run",
+    "test:headed": "cypress run --headed",
+    "test:browser": "cypress run --browser chrome",
+    "open": "cypress open",
+     "report": "mkdir -p reports && mochawesome-merge reports/*.json > reports/index.json && marge reports/index.json",
+    "cy:run": "npx cypress run --browser chrome --spec 'cypress/e2e/**/*.cy.js'"
+
+
   },
   "author": "Dilip",
   "license": "ISC",
@@ -11,7 +22,11 @@
   "devDependencies": {
     "@types/cypress": "^0.1.6",
     "@types/mocha": "^10.0.10",
-    "cypress": "^14.1.0",
-    "cypress-xpath": "^2.0.1"
+    "cypress": "^14.2.0",
+    "cypress-xpath": "^2.0.1",
+    "mocha-parallel-tests": "^2.3.0"
+  },
+  "dependencies": {
+    "cypress-parallel": "^0.15.0"
   }
 }

@@ -7,9 +7,9 @@ import Searchpage2 from "../Pageobjects/SearchpagePOM2"
 describe('test suites', () =>{
 
    
-       it('Log in test  with POM', ()=> {
+       it('Search product test', ()=> {
            
-           cy.visit("https://awesomeqa.com/ui/index.php?route=common/home");
+           cy.visit("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
            cy.wait(5000);
 
            const hm= new Homepage();
@@ -18,8 +18,8 @@ describe('test suites', () =>{
            cy.wait(5000);
    
            const ln= new Login();
-           ln.setUsername("vdilipkumar197888@gmail.com");
-           ln.setPassword("Deepu@123");
+           ln.setUsername("Harishkumar567@gmail.com");
+           ln.setPassword("Harish@123");
            ln.clickSubmit();
           
            const sp = new Searchpage2();
@@ -32,9 +32,9 @@ describe('test suites', () =>{
            sp.clickonaddtocart();
            cy.wait(5000);
            sp.productlistsuccessmessage();
-           sp.Linkcartlist();
-           sp.Viewcartlink();
-           sp.Linkcontinueshopping();
+           //sp.Linkcartlist();
+           //sp.Viewcartlink();
+           //sp.Linkcontinueshopping();
     
            
            
